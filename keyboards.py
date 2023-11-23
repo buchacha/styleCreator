@@ -236,6 +236,6 @@ def finish():
 def go_to_pro():
     kb = [
         [types.InlineKeyboardButton(text='Пополнить баланс', url="https://forms.gle/sE1bNyEEopwDxkvn6")],
-        [types.InlineKeyboardButton(text='Получить бесплатно', url="https://forms.gle/wiUchBTegxdVaEwW8")]
+        [types.InlineKeyboardButton(text='Получить бесплатно', url="https://forms.gle/CS8g4QrTQXuYgKCJ6")]
     ]
     return types.InlineKeyboardMarkup(inline_keyboard=kb)

@@ -53,7 +53,7 @@ async def choosing_generated_look_cb(callback: types.CallbackQuery, state: FSMCo
 
 @router.message(SaveLook.choosing_generated_look, F.text=='🏠 В меню')
 async def tap_to_menu(message: types.Message, state: FSMContext):
-    await message.answer('Дождитесь окончания поиска (если бот завис вызовите команду /start)')
+    await message.answer(messages.expect)
 
 
 @router.callback_query(SaveLook.choosing_generated_look, F.data.startswith("ok"))
