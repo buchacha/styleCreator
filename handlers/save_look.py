@@ -5,6 +5,8 @@ import keyboards
 import pymongo
 import utils
 
+# from aiogram import html
+from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
 from aiogram import Bot, Dispatcher, F, types
 from aiogram import Router, F
@@ -100,13 +102,14 @@ async def saving_look(message: types.Message, state: FSMContext):
         img_url = await utils.upload_image(f'{work_folder}/output_generation/{image_path}')
         await message.answer_photo(
             URLInputFile(img_url),
-            caption="Сохраните созданный образ в удобном месте или поделитесь с друзьями", 
-            reply_markup=keyboards.finish()
+            caption=messages.save_image + '\n\n' + '[Участвовать прямо сейчас](https://t.me/stylecreatorchat)', 
+            reply_markup=keyboards.finish(),
+            parse_mode=ParseMode.MARKDOWN_V2
         )
 
         # await message.answer_animation(
         #     animation=file_ids.file_ids['share'],
-        #     caption="Сохраните созданный образ в удобном месте или поделитесь с друзьями",
+        #     caption=messages.save_image,
         #     reply_markup=keyboards.finish()
         # )
         await state.set_state(SaveLook.saving_look)

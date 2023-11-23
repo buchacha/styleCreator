@@ -103,7 +103,7 @@ async def send_expectation_messages_third(message, msgs):
 @router.message(GenerateLook.choosing_way_of_generating, F.text=='🏠 В меню')
 async def callbacks_params_change(message: Message, state: FSMContext):
     # await save_look.finish(message, state)
-    await message.answer('Дождитесь окончания примерки (если бот завис вызовите команду /start)')
+    await message.answer(messages.expect)
 
 
 # ok
@@ -302,7 +302,7 @@ async def callbacks_params_change(
 
 @router.message(GenerateLook.generation)
 async def go_to_menu(message: types.Message, state: FSMContext):
-    await message.answer('Дождитесь окончания примерки (если бот завис вызовите команду /start)')
+    await message.answer(messages.expect)
     # await save_look.finish(message, state)
 
 
